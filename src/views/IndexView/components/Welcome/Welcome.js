@@ -42,6 +42,9 @@ const Welcome = () => {
         variant='contained'
         color='primary'
         size='large'
+        onClick={() => {
+          window.location.href = '/assessment';
+        }}
         sx={{
           fontWeight: 700,
           borderRadius: 2,

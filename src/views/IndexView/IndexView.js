@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import { Welcome, Goby } from './components';
+import { Welcome } from './components';
 
 const IndexView = () => {
   return (
