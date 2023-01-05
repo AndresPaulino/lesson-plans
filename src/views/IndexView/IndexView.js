@@ -7,7 +7,7 @@ import Main from 'layouts/Main';
 import Container from 'components/Container';
 import { Welcome, Goby, Process, Nike2, Larq, Nike, Trek, Curology, Reviews, Contact } from './components';
 
-const Home = () => {
+const IndexView = () => {
   useEffect(() => {
     const jarallaxInit = async () => {
       const jarallaxElems = document.querySelectorAll('.jarallax');
@@ -196,4 +196,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default IndexView;

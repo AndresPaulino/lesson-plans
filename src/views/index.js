@@ -1,1 +1,1 @@
-export { default as IndexView } from './Home';
+export { default as IndexView } from './IndexView';
