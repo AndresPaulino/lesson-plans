@@ -4,6 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import { Button } from '@mui/material';
 
 const Welcome = () => {
   const theme = useTheme();
@@ -11,57 +12,48 @@ const Welcome = () => {
   const GridItemHeadlineBlock = () => (
     <Box>
       <Typography
-        variant="h3"
+        variant='h3'
         align={'center'}
         gutterBottom
         sx={{
           fontWeight: 900,
         }}
       >
-        We craft beautiful websites and digital products
+        Generate your next lesson plan in minutes.
       </Typography>
       <Typography
-        variant="h6"
-        component="p"
-        color="text.secondary"
+        variant='h6'
+        component='p'
+        color='text.secondary'
         align={'center'}
         sx={{
           fontWeight: 400,
         }}
       >
-        Tell us your project requirements, budget, and timeline,
-        <br /> and we will connect you with up to four companies that match your
-        needs – all for free.
+        Quickly generate lesson plans for your students.
+        <br /> Choose what grade, subjects and topics you want to teach and Goby will generate a lesson plan for you.
       </Typography>
     </Box>
   );
 
-  const GridItemPartnersBlock = () => (
-    <Box display="flex" flexWrap="wrap" justifyContent={'center'} width={1}>
-      {[
-        'https://assets.maccarianagency.com/svg/logos/airbnb-original.svg',
-        'https://assets.maccarianagency.com/svg/logos/amazon-original.svg',
-        'https://assets.maccarianagency.com/svg/logos/fitbit-original.svg',
-        'https://assets.maccarianagency.com/svg/logos/netflix-original.svg',
-        'https://assets.maccarianagency.com/svg/logos/google-original.svg',
-        'https://assets.maccarianagency.com/svg/logos/paypal-original.svg',
-      ].map((item, i) => (
-        <Box maxWidth={80} width={1} marginTop={2} marginRight={4} key={i}>
-          <Box
-            component="img"
-            height={1}
-            width={1}
-            src={item}
-            alt="..."
-            sx={{
-              filter:
-                theme.palette.mode === 'dark'
-                  ? 'brightness(0) invert(0.7)'
-                  : 'contrast(0) brightness(0)',
-            }}
-          />
-        </Box>
-      ))}
+  const StartNowCTA = () => (
+    <Box display='flex' flexWrap='wrap' justifyContent={'center'} width={1}>
+      <Button
+        variant='contained'
+        color='primary'
+        size='large'
+        sx={{
+          fontWeight: 700,
+          borderRadius: 2,
+          textTransform: 'none',
+          boxShadow: theme.shadows[4],
+          '&:hover': {
+            boxShadow: theme.shadows[8],
+          },
+        }}
+      >
+        Get Started
+      </Button>
     </Box>
   );
 
@@ -69,23 +61,13 @@ const Welcome = () => {
     <Box>
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <Box
-            width="100%"
-            height="100%"
-            display="flex"
-            justifyContent={'center'}
-          >
+          <Box width='100%' height='100%' display='flex' justifyContent={'center'}>
             <GridItemHeadlineBlock />
           </Box>
         </Grid>
         <Grid item xs={12}>
-          <Box
-            width="100%"
-            height="100%"
-            display="flex"
-            justifyContent={'center'}
-          >
-            <GridItemPartnersBlock />
+          <Box width='100%' height='100%' display='flex' justifyContent={'center'}>
+            <StartNowCTA />
           </Box>
         </Grid>
       </Grid>

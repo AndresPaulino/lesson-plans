@@ -8,7 +8,6 @@ import AppBar from '@mui/material/AppBar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 import Container from 'components/Container';
-import TopNav from 'components/TopNav';
 
 import { Topbar, Sidebar, Footer } from './components';
 
@@ -39,11 +38,6 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
 
   return (
     <Box>
-      <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
-        <Container paddingTop={'8px !important'} paddingBottom={'0 !important'}>
-          <TopNav colorInvert={colorInvert} />
-        </Container>
-      </Box>
       <AppBar
         position={'sticky'}
         sx={{
@@ -53,19 +47,10 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
         elevation={trigger ? 1 : 0}
       >
         <Container paddingY={1}>
-          <Topbar
-            onSidebarOpen={handleSidebarOpen}
-            pages={pages}
-            colorInvert={trigger ? false : colorInvert}
-          />
+          <Topbar onSidebarOpen={handleSidebarOpen} pages={pages} colorInvert={trigger ? false : colorInvert} />
         </Container>
       </AppBar>
-      <Sidebar
-        onClose={handleSidebarClose}
-        open={open}
-        variant="temporary"
-        pages={pages}
-      />
+      <Sidebar onClose={handleSidebarClose} open={open} variant='temporary' pages={pages} />
       <main>
         {children}
         <Divider />
