@@ -20,13 +20,7 @@ const Footer = () => {
           width={1}
           flexDirection={{ xs: 'column', sm: 'row' }}
         >
-          <Box
-            display={'flex'}
-            component="a"
-            href="/"
-            title="theFront"
-            width={80}
-          >
+          <Box display={'flex'} component='a' href='/' title='theFront' width={80}>
             <Box
               component={'img'}
               src={
@@ -38,63 +32,19 @@ const Footer = () => {
               width={1}
             />
           </Box>
-          <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
-            <Box marginTop={1} marginRight={2}>
-              <Link
-                underline="none"
-                component="a"
-                href="/"
-                color="text.primary"
-                variant={'subtitle2'}
-              >
-                Home
-              </Link>
-            </Box>
-            <Box marginTop={1} marginRight={2}>
-              <Link
-                underline="none"
-                component="a"
-                href="/docs/introduction"
-                color="text.primary"
-                variant={'subtitle2'}
-              >
-                Documentation
-              </Link>
-            </Box>
-            <Box marginTop={1}>
-              <Button
-                variant="outlined"
-                color="primary"
-                component="a"
-                target="blank"
-                href="https://mui.com/store/items/the-front-landing-page/"
-                size="small"
-              >
-                Purchase now
-              </Button>
-            </Box>
-          </Box>
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <Typography
-          align={'center'}
-          variant={'subtitle2'}
-          color="text.secondary"
-          gutterBottom
-        >
-          &copy; theFront. 2021, Maccarian. All rights reserved
+        <Typography align={'center'} variant={'subtitle2'} color='text.secondary' gutterBottom>
+          &copy; planifAI 2023. All rights reserved
         </Typography>
-        <Typography
-          align={'center'}
-          variant={'caption'}
-          color="text.secondary"
-          component={'p'}
-        >
-          When you visit or interact with our sites, services or tools, we or
-          our authorised service providers may use cookies for storing
-          information to help provide you with a better, faster and safer
-          experience and for marketing purposes.
+        <Typography align={'center'} variant={'caption'} color='text.secondary' component={'p'}>
+          planifAI was made with love by Andres Paulino. It is a project using Chat-GPT to help teachers
+          forumluate quick and easy lesson plans. If you would like contact me, please do so at
+          paulinoandresmiguel@gmail.com or visit my website at{' '}
+          <Link href='https://andrespaulino.com' target='_blank' rel='noopener noreferrer'>
+            andrespaulino.com
+          </Link>
         </Typography>
       </Grid>
     </Grid>

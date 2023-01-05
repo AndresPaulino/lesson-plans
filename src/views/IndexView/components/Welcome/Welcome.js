@@ -30,7 +30,7 @@ const Welcome = () => {
           fontWeight: 400,
         }}
       >
-        Quickly generate lesson plans for your students.
+        Use the power of AI to quickly generate lesson plans for your students.
         <br /> Choose what grade, subjects and topics you want to teach and Goby will generate a lesson plan for you.
       </Typography>
     </Box>
