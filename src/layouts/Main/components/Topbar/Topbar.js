@@ -1,27 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import { useTheme } from '@mui/material/styles';
-import MenuIcon from '@mui/icons-material/Menu';
+import Image from 'next/image';
+import planifaiLogo from 'public/assets/planifai_logo.png';
 
-const Topbar = ({ colorInvert = false }) => {
-  const theme = useTheme();
-  const { mode } = theme.palette;
-
+const Topbar = () => {
   return (
-    <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={1}>
-      <Box display={'flex'} component='a' href='/' title='theFront' width={{ xs: 100, md: 120 }}>
-        <Box
-          component={'img'}
-          src={
-            mode === 'light' && !colorInvert
-              ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
-              : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
-          }
-          height={1}
-          width={1}
-        />
+    <Box display={'flex'} justifyContent={'left'} alignItems={'center'} width={1}>
+      <Box display={'flex'} component='a' href='/' title='planifAI' width={{ xs: 100, md: 120 }}>
+        <Image src={planifaiLogo} alt='planifAI' width={75} height={75} />
       </Box>
     </Box>
   );
