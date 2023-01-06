@@ -1,16 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
+import Main from 'layouts/Main';
+import Container from 'components/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 
 const Question = ({ question, onSubmit }) => {
   const { text, answers } = question;
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
+  const theme = useTheme();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(selectedAnswer);
+    setSelectedAnswer(null);
   };
 
   const handleChange = (event) => {
@@ -18,16 +25,78 @@ const Question = ({ question, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p>{text}</p>
-      {answers.map((answer) => (
-        <div key={answer}>
-          <input type='radio' value={answer} checked={selectedAnswer === answer} onChange={handleChange} />
-          <label>{answer}</label>
-        </div>
-      ))}
-      <button type='submit'>Next</button>
-    </form>
+    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+      <Typography variant='h4' gutterBottom>
+        {text}
+      </Typography>
+      <form onSubmit={handleSubmit}>
+        <Box display={'flex'} flexDirection={'row'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+          {answers.map((answer) => (
+            <Grid item xs={12} sm={6} md={4} key={answer.id}>
+              <Box
+                display={'flex'}
+                flexDirection={'column'}
+                alignItems={'center'}
+                maxWidth={1}
+                margin={'0 auto'}
+                sx={{
+                  borderRadius: 1,
+                  p: 2,
+                  my: 2,
+                }}
+              >
+                <Button
+                  variant={selectedAnswer === answer ? 'contained' : 'outlined'}
+                  color='primary'
+                  size='large'
+                  sx={{
+                    fontWeight: 700,
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    boxShadow: theme.shadows[4],
+                    '&:hover': {
+                      boxShadow: theme.shadows[8],
+                    },
+                  }}
+                  value={answer}
+                  onClick={handleChange}
+                >
+                  {answer}
+                </Button>
+              </Box>
+            </Grid>
+          ))}
+        </Box>
+        <Box
+          display={'flex'}
+          flexDirection={'row'}
+          justifyContent={'center'}
+          alignItems={'center'}
+          maxWidth={1}
+          margin={'0 auto'}
+        >
+          {selectedAnswer && (
+            <Button
+              variant='contained'
+              color='primary'
+              size='large'
+              sx={{
+                fontWeight: 700,
+                borderRadius: 2,
+                textTransform: 'none',
+                boxShadow: theme.shadows[4],
+                '&:hover': {
+                  boxShadow: theme.shadows[8],
+                },
+              }}
+              type='submit'
+            >
+              Submit
+            </Button>
+          )}
+        </Box>
+      </form>
+    </Box>
   );
 };
 

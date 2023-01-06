@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Question } from './components';
+import Main from 'layouts/Main';
+import Container from 'components/Container';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const QUESTIONS = [
   {
@@ -25,14 +29,27 @@ const Assessment = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
 
+  console.log(answers);
+
   return (
-    <div>
-      {currentQuestion < QUESTIONS.length ? (
-        <Question question={QUESTIONS[currentQuestion]} onSubmit={handleSubmit} />
-      ) : (
-        <p>Thank you for completing the questionnaire!</p>
-      )}
-    </div>
+    <Main>
+      <Container>
+        <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+          <Typography variant='h4' gutterBottom>
+            Assessment
+          </Typography>
+        </Box>
+        {currentQuestion < QUESTIONS.length ? (
+          <Question question={QUESTIONS[currentQuestion]} onSubmit={handleSubmit} />
+        ) : (
+          <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+            <Typography variant='h4' gutterBottom>
+              Thank you for taking the assessment!
+            </Typography>
+          </Box>
+        )}
+      </Container>
+    </Main>
   );
 };
 
