@@ -38,18 +38,9 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
 
   return (
     <Box>
-      <AppBar
-        position={'sticky'}
-        sx={{
-          top: 0,
-          backgroundColor: trigger ? theme.palette.background.paper : bgcolor,
-        }}
-        elevation={trigger ? 1 : 0}
-      >
-        <Container paddingY={1}>
-          <Topbar onSidebarOpen={handleSidebarOpen} pages={pages} colorInvert={trigger ? false : colorInvert} />
-        </Container>
-      </AppBar>
+      <Container paddingY={1}>
+        <Topbar onSidebarOpen={handleSidebarOpen} pages={pages} colorInvert={trigger ? false : colorInvert} />
+      </Container>
       <Sidebar onClose={handleSidebarClose} open={open} variant='temporary' pages={pages} />
       <main>
         {children}
