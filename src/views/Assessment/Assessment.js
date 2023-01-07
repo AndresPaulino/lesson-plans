@@ -8,16 +8,44 @@ import { Button } from '@mui/material';
 
 const QUESTIONS = [
   {
-    text: 'What is your favorite color?',
-    answers: ['Red', 'Green', 'Blue'],
+    text: 'What grade are you teaching?',
+    answers: [
+      'Pre-K',
+      'Kindergarten',
+      '1st Grade',
+      '2nd Grade',
+      '3rd Grade',
+      '4th Grade',
+      '5th Grade',
+      '6th Grade',
+      '7th Grade',
+      '8th Grade',
+      '9th Grade',
+      '10th Grade',
+      '11th Grade',
+      '12th Grade',
+    ],
   },
   {
-    text: 'What is your favorite animal?',
-    answers: ['Dog', 'Cat', 'Fish'],
+    text: 'What subject would you like to base your lesson on?',
+    answers: [
+      'English',
+      'Math',
+      'Science',
+      'History',
+      'Art',
+      'Music',
+      'Geography',
+      'Biology',
+      'Chemistry',
+      'Physics',
+      'Social Studies',
+      'Technology',
+    ],
   },
   {
-    text: 'What is your favorite hobby?',
-    answers: ['Reading', 'Sports', 'Music'],
+    text: 'How long do you want your lesson to be?',
+    answers: ['15 minutes', '30 minutes', '45 minutes', '1 hour', '1.5 hours', '2 hours'],
   },
 ];
 
@@ -38,7 +66,7 @@ const Assessment = () => {
         {currentQuestion < QUESTIONS.length ? (
           <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
             <Typography variant='h4' gutterBottom>
-              Assessment
+              Question {currentQuestion + 1} of {QUESTIONS.length}
             </Typography>
             <Question question={QUESTIONS[currentQuestion]} onNext={handleNext} />
           </Box>

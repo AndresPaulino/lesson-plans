@@ -29,41 +29,43 @@ const Question = ({ question, onNext }) => {
       </Typography>
       <form onSubmit={handleSubmit}>
         <Box display={'flex'} flexDirection={'row'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
-          {answers.map((answer) => (
-            <Grid item xs={12} sm={6} md={4} key={answer.id}>
-              <Box
-                display={'flex'}
-                flexDirection={'column'}
-                alignItems={'center'}
-                maxWidth={1}
-                margin={'0 auto'}
-                sx={{
-                  borderRadius: 1,
-                  p: 2,
-                  my: 2,
-                }}
-              >
-                <Button
-                  variant={selectedAnswer === answer ? 'contained' : 'outlined'}
-                  color='primary'
-                  size='large'
+          <Grid container spacing={1} justifyContent='center' alignItems='center'>
+            {answers.map((answer) => (
+              <Grid item xs={6} sm={3} md={2} key={answer.id}>
+                <Box
+                  display={'flex'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                  maxWidth={1}
+                  margin={'0 auto'}
                   sx={{
-                    fontWeight: 700,
-                    borderRadius: 2,
-                    textTransform: 'none',
-                    boxShadow: theme.shadows[4],
-                    '&:hover': {
-                      boxShadow: theme.shadows[8],
-                    },
+                    borderRadius: 1,
+                    p: 2,
+                    my: 2,
                   }}
-                  value={answer}
-                  onClick={handleChange}
                 >
-                  {answer}
-                </Button>
-              </Box>
-            </Grid>
-          ))}
+                  <Button
+                    variant={selectedAnswer === answer ? 'contained' : 'outlined'}
+                    color='primary'
+                    size='large'
+                    sx={{
+                      fontWeight: 700,
+                      borderRadius: 2,
+                      textTransform: 'none',
+                      boxShadow: theme.shadows[4],
+                      '&:hover': {
+                        boxShadow: theme.shadows[8],
+                      },
+                    }}
+                    value={answer}
+                    onClick={handleChange}
+                  >
+                    {answer}
+                  </Button>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
         <Box
           display={'flex'}
