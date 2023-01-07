@@ -1,14 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
-import Main from 'layouts/Main';
-import Container from 'components/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
-const Question = ({ question, onSubmit }) => {
+const Question = ({ question, onNext }) => {
   const { text, answers } = question;
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
@@ -16,7 +14,7 @@ const Question = ({ question, onSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(selectedAnswer);
+    onNext(selectedAnswer);
     setSelectedAnswer(null);
   };
 
@@ -91,7 +89,7 @@ const Question = ({ question, onSubmit }) => {
               }}
               type='submit'
             >
-              Submit
+              Next
             </Button>
           )}
         </Box>

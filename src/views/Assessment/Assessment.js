@@ -4,6 +4,7 @@ import Main from 'layouts/Main';
 import Container from 'components/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { Button } from '@mui/material';
 
 const QUESTIONS = [
   {
@@ -24,7 +25,7 @@ const Assessment = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
 
-  const handleSubmit = (answer) => {
+  const handleNext = (answer) => {
     setAnswers([...answers, answer]);
     setCurrentQuestion(currentQuestion + 1);
   };
@@ -34,18 +35,30 @@ const Assessment = () => {
   return (
     <Main>
       <Container>
-        <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
-          <Typography variant='h4' gutterBottom>
-            Assessment
-          </Typography>
-        </Box>
         {currentQuestion < QUESTIONS.length ? (
-          <Question question={QUESTIONS[currentQuestion]} onSubmit={handleSubmit} />
+          <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+            <Typography variant='h4' gutterBottom>
+              Assessment
+            </Typography>
+            <Question question={QUESTIONS[currentQuestion]} onNext={handleNext} />
+          </Box>
         ) : (
           <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
             <Typography variant='h4' gutterBottom>
-              Thank you for taking the assessment!
+              Thank you for completing the assessment!
             </Typography>
+            <Button
+              variant='contained'
+              color='primary'
+              size='large'
+              sx={{
+                fontWeight: 700,
+                borderRadius: 2,
+                textTransform: 'none',
+              }}
+            >
+              Generate My Lesson Plan!
+            </Button>
           </Box>
         )}
       </Container>
