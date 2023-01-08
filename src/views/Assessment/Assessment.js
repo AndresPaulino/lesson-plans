@@ -51,10 +51,9 @@ const QUESTIONS = [
   },
 ];
 
-const Assessment = () => {
+const Questionnaire = ({ generateLessonPlan }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [openaiResponse, setOpenaiResponse] = useState('');
   const [loading, setLoading] = useState(false);
 
   const prompt = () => {
@@ -71,43 +70,77 @@ const Assessment = () => {
     e.preventDefault();
     setLoading(true);
     // trigger the openai api call from /api/openai.js
-    const response = await axios.post('/api/openai', { prompt: prompt() });
-    setOpenaiResponse(response.data);
-    console.log(response.data)
+    generateLessonPlan(prompt());
     setLoading(false);
   };
 
   return (
+    <Container>
+      {currentQuestion < QUESTIONS.length ? (
+        <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+          <Typography variant='h4' gutterBottom>
+            Question {currentQuestion + 1} of {QUESTIONS.length}
+          </Typography>
+          <Question question={QUESTIONS[currentQuestion]} onNext={handleNext} />
+        </Box>
+      ) : (
+        <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+          <Typography variant='h4' gutterBottom>
+            Thank you for completing the assessment!
+          </Typography>
+          <Button
+            variant='contained'
+            color='primary'
+            size='large'
+            sx={{
+              fontWeight: 700,
+              borderRadius: 2,
+              textTransform: 'none',
+            }}
+            onClick={handleSubmit}
+          >
+            {loading ? 'Loading...' : 'Generate Lesson Plan!'}
+          </Button>
+        </Box>
+      )}
+    </Container>
+  );
+};
+
+const Response = ({ openaiResponse }) => {
+  return (
+    <Container>
+      <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+        <Typography variant='h4' gutterBottom>
+          Here is your lesson plan!
+        </Typography>
+        <Box>
+          <Typography>
+            <pre>{openaiResponse}</pre>
+          </Typography>
+        </Box>
+      </Box>
+    </Container>
+  );
+};
+
+const Assessment = () => {
+  const [openaiResponse, setOpenaiResponse] = useState('');
+  const generateLessonPlan = async (prompt) => {
+    const response = await axios.post('/api/openai', { prompt: prompt });
+    setOpenaiResponse(response.data);
+    console.log(response.data);
+  };
+
+  return (
     <Main>
-      <Container>
-        {currentQuestion < QUESTIONS.length ? (
-          <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
-            <Typography variant='h4' gutterBottom>
-              Question {currentQuestion + 1} of {QUESTIONS.length}
-            </Typography>
-            <Question question={QUESTIONS[currentQuestion]} onNext={handleNext} />
-          </Box>
+      <Box>
+        {openaiResponse ? (
+          <Response openaiResponse={openaiResponse} />
         ) : (
-          <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
-            <Typography variant='h4' gutterBottom>
-              Thank you for completing the assessment!
-            </Typography>
-            <Button
-              variant='contained'
-              color='primary'
-              size='large'
-              sx={{
-                fontWeight: 700,
-                borderRadius: 2,
-                textTransform: 'none',
-              }}
-              onClick={handleSubmit}
-            >
-              {loading ? 'Loading...' : 'Generate Lesson Plan!'}
-            </Button>
-          </Box>
+          <Questionnaire generateLessonPlan={generateLessonPlan} />
         )}
-      </Container>
+      </Box>
     </Main>
   );
 };
