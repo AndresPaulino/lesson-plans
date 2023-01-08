@@ -5,6 +5,8 @@ import Container from 'components/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
+import axios from 'axios';
+import openai from 'openai';
 
 const QUESTIONS = [
   {
@@ -52,13 +54,28 @@ const QUESTIONS = [
 const Assessment = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [openaiResponse, setOpenaiResponse] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const prompt = () => {
+    let prompt = `Create a teacher\'s lesson plan for ${answers[0]} that focuses on ${answers[1]} and takes no more than ${answers[2]} to complete.`;
+    return prompt;
+  };
 
   const handleNext = (answer) => {
     setAnswers([...answers, answer]);
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  console.log(answers);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    // trigger the openai api call from /api/openai.js
+    const response = await axios.post('/api/openai', { prompt: prompt() });
+    setOpenaiResponse(response.data);
+    console.log(response.data)
+    setLoading(false);
+  };
 
   return (
     <Main>
@@ -84,8 +101,9 @@ const Assessment = () => {
                 borderRadius: 2,
                 textTransform: 'none',
               }}
+              onClick={handleSubmit}
             >
-              Generate My Lesson Plan!
+              {loading ? 'Loading...' : 'Generate Lesson Plan!'}
             </Button>
           </Box>
         )}
