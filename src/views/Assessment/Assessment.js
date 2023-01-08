@@ -3,6 +3,7 @@ import { Question } from './components';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import axios from 'axios';
@@ -57,7 +58,7 @@ const Questionnaire = ({ generateLessonPlan }) => {
   const [loading, setLoading] = useState(false);
 
   const prompt = () => {
-    let prompt = `Create a teacher\'s lesson plan for ${answers[0]} that focuses on ${answers[1]} and takes no more than ${answers[2]} to complete.`;
+    let prompt = `Create a very detailed teacher\'s lesson plan for ${answers[0]} that focuses on ${answers[1]} and takes no more than ${answers[2]} to complete. Return it as JSON with double quotes with the following properties: title, objective, materials, time, warmUp, directInstruction, guidedPractice, independentPractice, conclusion and debrief. List the materials and instructions as an array of strings. List the warmUp, directInstruction, guidedPractice, independentPractice, conclusion and debrief as objects with the following properties: title, description, time, and materials.`;
     return prompt;
   };
 
@@ -70,7 +71,7 @@ const Questionnaire = ({ generateLessonPlan }) => {
     e.preventDefault();
     setLoading(true);
     // trigger the openai api call from /api/openai.js
-    generateLessonPlan(prompt());
+    await generateLessonPlan(prompt());
     setLoading(false);
   };
 
@@ -108,16 +109,109 @@ const Questionnaire = ({ generateLessonPlan }) => {
 };
 
 const Response = ({ openaiResponse }) => {
+  // convert the response to an object
+  const response = JSON.parse(openaiResponse);
+  const {
+    title,
+    objective,
+    materials,
+    time,
+    warmUp,
+    directInstruction,
+    guidedPractice,
+    independentPractice,
+    conclusion,
+    debrief,
+  } = response;
+
   return (
     <Container>
       <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
-        <Typography variant='h4' gutterBottom>
+        <Typography variant='h4' gutterBottom mb={5}>
           Here is your lesson plan!
         </Typography>
-        <Box>
-          <Typography>
-            <pre>{openaiResponse}</pre>
-          </Typography>
+        <Box
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'center'}
+          alignContent={'center'}
+          alignItems={'center'}
+        >
+          <Grid container spacing={2} my={5}>
+            <Grid item xs={12} sm={6}>
+              <Typography variant='h6' gutterBottom>
+                <b>Title:</b> {title}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography variant='h6' gutterBottom>
+                <b>Est time:</b> {time}
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={12}>
+              <Typography variant='h6' gutterBottom>
+                <b>Objective:</b> {objective}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Typography variant='h6' gutterBottom>
+                <b>Materials:</b>{' '}
+                {materials.map((material) => {
+                  return (
+                    <li
+                      key={material}
+                      sx={{
+                        marginLeft: 2,
+                      }}
+                    >
+                      {material}
+                    </li>
+                  );
+                })}
+              </Typography>
+
+              <Typography variant='h6' gutterBottom my={5}>
+                <b>Warm Up:</b> {warmUp.title}
+                <br />
+                <b>Description:</b> {warmUp.description}
+                <br />
+                <b>Time:</b> {warmUp.time} minutes
+              </Typography>
+              <Typography variant='h6' gutterBottom my={5}>
+                <b>Instructions:</b> {directInstruction.title}
+                <br />
+                <b>Description:</b> {directInstruction.description}
+                <br />
+                <b>Time:</b> {directInstruction.time} minutes
+              </Typography>
+              <Typography variant='h6' gutterBottom my={5}>
+                <b>Guided Practice:</b> {guidedPractice.title}
+                <br />
+                <b>Description:</b> {guidedPractice.description}
+                <br />
+                <b>Time:</b> {guidedPractice.time} minutes
+              </Typography>
+              <Typography variant='h6' gutterBottom my={5}>
+                <b>Independent Practice:</b> {independentPractice.title}
+                <br />
+                <b>Description:</b> {independentPractice.description}
+                <br />
+                <b>Time:</b> {independentPractice.time} minutes
+              </Typography>
+              <Typography variant='h6' gutterBottom my={5}>
+                <b>Conclusion:</b> {conclusion.title}
+                <br />
+                <b>Description:</b> {conclusion.description}
+              </Typography>
+              <Typography variant='h6' gutterBottom my={5}>
+                <b>Debrief:</b> {debrief.title}
+                <br />
+                <b>Description:</b> {debrief.description}
+              </Typography>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </Container>

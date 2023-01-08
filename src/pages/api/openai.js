@@ -12,13 +12,11 @@ const getResponse = async (req, res) => {
     model: 'text-davinci-003',
     prompt: prompt,
     temperature: 0.9,
-    max_tokens: 150,
+    max_tokens: 1500,
     top_p: 1,
-    frequency_penalty: 0,
-    presence_penalty: 0.6,
-    stop: ['.'],
   });
 
+  // return response.data.choices[0].text as object
   res.status(200).json(response.data.choices[0].text);
 };
 
