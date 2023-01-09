@@ -126,14 +126,7 @@ const Response = ({ openaiResponse }) => {
 
   return (
     <Container>
-      <Box
-        display={'flex'}
-        flexDirection={'column'}
-        alignItems={'center'}
-        maxWidth={1}
-        margin={'0 auto'}
-        bgcolor={'white'}
-      >
+      <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} bgcolor={'white'}>
         <Typography variant='h4' gutterBottom my={5}>
           Here is your lesson plan!
         </Typography>
