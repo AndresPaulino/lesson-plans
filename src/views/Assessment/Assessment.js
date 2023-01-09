@@ -48,7 +48,7 @@ const QUESTIONS = [
   },
   {
     text: 'How long do you want your lesson to be?',
-    answers: ['15 minutes', '30 minutes', '45 minutes', '1 hour', '1.5 hours', '2 hours'],
+    answers: ['5 minutes', '10 minutes', '15 minutes', '30 minutes', '45 minutes', '1 hour', '1.5 hours', '2 hours'],
   },
 ];
 
@@ -213,6 +213,17 @@ const Response = ({ openaiResponse }) => {
             </Grid>
           </Grid>
         </Box>
+        <Button
+          onClick={() => {
+            window.location.reload();
+          }}
+          variant='contained'
+          color='primary'
+          size='large'
+          sx={{ fontWeight: 700, borderRadius: 2 }}
+        >
+          Start over
+        </Button>
       </Box>
     </Container>
   );
