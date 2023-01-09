@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
+import Image from 'next/image';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -15,8 +16,10 @@ const Welcome = () => {
         variant='h3'
         align={'center'}
         gutterBottom
+        color={'white'}
         sx={{
           fontWeight: 900,
+          textShadow: '0 0 10px rgba(0,0,0,0.3)',
         }}
       >
         Generate your next lesson plan in minutes.
@@ -24,14 +27,15 @@ const Welcome = () => {
       <Typography
         variant='h6'
         component='p'
-        color='text.secondary'
+        color='white'
         align={'center'}
         sx={{
           fontWeight: 400,
+          textShadow: '0 0 10px rgba(0,0,0,0.5)',
         }}
       >
-        Use the power of AI to quickly generate lesson plans for your students.
-        <br /> Choose what grade, subjects and topics you want to teach and Goby will generate a lesson plan for you.
+        Use the power of AI to quickly generate lesson plans for you and your students.
+        <br /> Choose what grade, subject and topic you want to teach and planifAI will generate a lesson plan for you.
       </Typography>
     </Box>
   );
@@ -40,7 +44,6 @@ const Welcome = () => {
     <Box display='flex' flexWrap='wrap' justifyContent={'center'} width={1}>
       <Button
         variant='contained'
-        color='primary'
         size='large'
         onClick={() => {
           window.location.href = '/assessment';
@@ -52,7 +55,9 @@ const Welcome = () => {
           boxShadow: theme.shadows[4],
           '&:hover': {
             boxShadow: theme.shadows[8],
+            bgcolor: '#35decc',
           },
+          bgcolor: '#1fcbb7',
         }}
       >
         Get Started

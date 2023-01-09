@@ -7,7 +7,7 @@ import { Typography } from '@mui/material';
 
 const Topbar = () => {
   return (
-    <Box display={'flex'} justifyContent={'left'} alignItems={'center'} width={1}>
+    <Box display={'flex'} justifyContent={'left'} alignItems={'center'} width={1} bgcolor={'transparent'}>
       <Box display={'flex'} component='a' href='/' title='planifAI' width={{ xs: 100, md: 120 }}>
         <Image src={planifaiLogo} alt='planifAI' width={150} height={150} />
         {/* <Typography variant='h4' component='h1' sx={{ fontWeight: 900, color: 'primary.main' }}>

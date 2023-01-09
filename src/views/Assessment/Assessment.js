@@ -126,8 +126,15 @@ const Response = ({ openaiResponse }) => {
 
   return (
     <Container>
-      <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
-        <Typography variant='h4' gutterBottom mb={5}>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        alignItems={'center'}
+        maxWidth={1}
+        margin={'0 auto'}
+        bgcolor={'white'}
+      >
+        <Typography variant='h4' gutterBottom my={5}>
           Here is your lesson plan!
         </Typography>
         <Box
@@ -136,6 +143,8 @@ const Response = ({ openaiResponse }) => {
           justifyContent={'center'}
           alignContent={'center'}
           alignItems={'center'}
+          padding={5}
+          margin={5}
         >
           <Grid container spacing={2} my={5}>
             <Grid item xs={12} sm={6}>
@@ -220,7 +229,7 @@ const Response = ({ openaiResponse }) => {
           variant='contained'
           color='primary'
           size='large'
-          sx={{ fontWeight: 700, borderRadius: 2 }}
+          sx={{ fontWeight: 700, borderRadius: 2, marginBottom: 5 }}
         >
           Start over
         </Button>
@@ -241,7 +250,16 @@ const Assessment = () => {
     <Main>
       <Box>
         {openaiResponse ? (
-          <Response openaiResponse={openaiResponse} />
+          <Box
+            sx={{
+              backgroundImage:
+                'url(https://images.unsplash.com/photo-1614292264554-7dca1d6466d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80)',
+              backgroundPosition: 'center',
+              backgroundSize: 'auto 100%',
+            }}
+          >
+            <Response openaiResponse={openaiResponse} />
+          </Box>
         ) : (
           <Questionnaire generateLessonPlan={generateLessonPlan} />
         )}

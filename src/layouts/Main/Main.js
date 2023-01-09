@@ -38,10 +38,19 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
 
   return (
     <Box>
-      <Container paddingY={1}>
-        <Topbar onSidebarOpen={handleSidebarOpen} pages={pages} colorInvert={trigger ? false : colorInvert} />
-      </Container>
-      <Sidebar onClose={handleSidebarClose} open={open} variant='temporary' pages={pages} />
+      {/* <AppBar
+        sx={{
+          top: 50,
+          backgroundColor: bgcolor,
+          visibility: trigger ? 'hidden' : 'visible',
+        }}
+        elevation={trigger ? 1 : 0}
+      >
+        <Container paddingY={1}>
+          <Topbar onSidebarOpen={handleSidebarOpen} pages={pages} colorInvert={trigger ? false : colorInvert} />
+        </Container>
+      </AppBar>
+      <Sidebar onClose={handleSidebarClose} open={open} variant='temporary' pages={pages} /> */}
       <main>
         {children}
         <Divider />
