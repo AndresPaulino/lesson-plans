@@ -10,7 +10,7 @@ import planifaiLogo from 'public/assets/planifai_logo.png';
 
 const IndexView = () => {
   const testKey = process.env.NEXT_PUBLIC_TEST_KEY;
-  console.log(testKey);
+  console.log('thisis the test key', testKey);
 
   useEffect(() => {
     const jarallaxInit = async () => {
