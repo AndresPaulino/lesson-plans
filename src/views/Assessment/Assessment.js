@@ -250,8 +250,14 @@ const Assessment = () => {
     try {
       const res = await axios.post('/api/openai', { prompt });
       setOpenaiResponse(res.data);
+
+      console.log(res.data);
     } catch (error) {
-      console.error(error);
+      console.log(error.response);
+
+      if (error.response.status === 500) {
+        alert('There was a problem with the server');
+      }
     }
   };
 
