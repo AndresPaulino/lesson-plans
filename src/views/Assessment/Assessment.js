@@ -76,7 +76,7 @@ const Questionnaire = ({ generateLessonPlan }) => {
   };
 
   return (
-    <Container>
+    <Box>
       {currentQuestion < QUESTIONS.length ? (
         <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
           <Typography variant='h4' gutterBottom>
@@ -117,7 +117,7 @@ const Questionnaire = ({ generateLessonPlan }) => {
           )}
         </Box>
       )}
-    </Container>
+    </Box>
   );
 };
 

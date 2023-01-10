@@ -64,7 +64,7 @@ const IndexView = () => {
             component='a'
             href='/'
             title='planifAI'
-            width={{ xs: 100, md: 120 }}
+            width={1}
             margin={{
               xs: 2,
               md: '1rem 4rem',
@@ -73,11 +73,9 @@ const IndexView = () => {
             <Image src={planifaiLogo} alt='planifAI' width={150} height={150} />
           </Box>
         </Box>
-        <Container>
           <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
             <Welcome />
           </Box>
-        </Container>
       </Box>
     </Main>
   );

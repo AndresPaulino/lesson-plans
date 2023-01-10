@@ -7,16 +7,15 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import planifaiLogo from 'public/assets/planifai_logo.png';
 
-
 const Footer = () => {
-
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} justifyContent={'center'} alignItems={'center'} alignContent={'center'} p={4}>
       <Grid item xs={12}>
         <Box
           display={'flex'}
           justifyContent={'center'}
           alignItems={'center'}
+          alignContent={'center'}
           width={1}
           flexDirection={{ xs: 'column', sm: 'row' }}
         >
@@ -25,7 +24,15 @@ const Footer = () => {
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={12}>
+      <Grid
+        item
+        xs={12}
+        display={'flex'}
+        justifyContent={'center'}
+        alignItems={'center'}
+        width={1}
+        flexDirection={'column'}
+      >
         <Typography align={'center'} variant={'subtitle2'} color='text.secondary' gutterBottom>
           &copy; planifAI 2023. All rights reserved
         </Typography>
