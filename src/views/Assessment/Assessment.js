@@ -249,7 +249,6 @@ const Assessment = () => {
   const generateLessonPlan = async (prompt) => {
     const response = await axios.post('/api/openai', { prompt: prompt });
     setOpenaiResponse(response.data);
-    console.log(response.data);
   };
 
   return (
