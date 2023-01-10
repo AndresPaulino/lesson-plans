@@ -247,8 +247,12 @@ const Response = ({ openaiResponse }) => {
 const Assessment = () => {
   const [openaiResponse, setOpenaiResponse] = useState('');
   const generateLessonPlan = async (prompt) => {
-    const response = await axios.post('/api/openai', { prompt: prompt });
-    setOpenaiResponse(response.data);
+    try {
+      const res = await axios.post('/api/openai', { prompt });
+      setOpenaiResponse(res.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

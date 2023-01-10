@@ -6,7 +6,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const getResponse = async (req, res) => {
-  console.log(process.env.TEST_KEY);
   const { prompt } = req.body;
 
   const response = await openai.createCompletion({
