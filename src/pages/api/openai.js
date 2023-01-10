@@ -1,13 +1,12 @@
 const { Configuration, OpenAIApi } = require('openai');
 
-console.log(process.env.TEST_KEY);
-
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
 const getResponse = async (req, res) => {
+  console.log(process.env.TEST_KEY);
   const { prompt } = req.body;
 
   const response = await openai.createCompletion({
