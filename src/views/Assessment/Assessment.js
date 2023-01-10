@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Icon, IconButton, CircularProgress } from '@mui/material';
+import axios from 'axios';
 
 const QUESTIONS = [
   {
@@ -246,16 +247,10 @@ const Response = ({ openaiResponse }) => {
 const Assessment = () => {
   const [openaiResponse, setOpenaiResponse] = useState('');
   const generateLessonPlan = async (prompt) => {
-    const response = await fetch('/api/openai', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ prompt }),
-    });
-
-    const data = await response.json();
-    setOpenaiResponse(data);
+    // const response = await axios.post('/api/openai', { prompt: prompt });
+    const response = await axios.post('/api/hello');
+    console.log(response);
+    setOpenaiResponse(response.data);
   };
 
   return (
