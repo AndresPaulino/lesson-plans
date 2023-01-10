@@ -97,11 +97,17 @@ const Questionnaire = ({ generateLessonPlan }) => {
               fontWeight: 700,
               borderRadius: 2,
               textTransform: 'none',
+              marginTop: 5,
             }}
             onClick={handleSubmit}
           >
             {loading ? <CircularProgress size={24} color='inherit' /> : 'Generate my leson plan'}
           </Button>
+          {loading && (
+            <Typography variant='h6' gutterBottom my={5}>
+              Please wait while planifAI generates your lesson plan. This can take up to 30 seconds.
+            </Typography>
+          )}
         </Box>
       )}
     </Container>
