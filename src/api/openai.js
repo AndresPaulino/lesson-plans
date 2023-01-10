@@ -1,3 +1,4 @@
+import { NextApiRequest, NextApiResponse } from 'next';
 const { Configuration, OpenAIApi } = require('openai');
 
 const configuration = new Configuration({
@@ -5,8 +6,8 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const getResponse = async (req, res) => {
-  const { prompt } = req.body;
+const getResponse = async (NextApiRequest, NextApiResponse) => {
+  const { prompt } = NextApiRequest.body;
 
   try {
     const response = await openai.createCompletion({
@@ -17,10 +18,10 @@ const getResponse = async (req, res) => {
       top_p: 1,
     });
 
-    res.status(200).json(response.data.choices[0].text);
+    NextApiResponse.status(200).json(response.data.choices[0].text);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error completing request' });
+    NextApiResponse.status(500).json({ message: 'Error completing request' });
   }
 };
 
