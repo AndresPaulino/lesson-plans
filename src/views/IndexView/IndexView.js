@@ -9,6 +9,9 @@ import Image from 'next/image';
 import planifaiLogo from 'public/assets/planifai_logo.png';
 
 const IndexView = () => {
+  const testKey = process.env.TEST_KEY;
+  console.log(testKey);
+
   useEffect(() => {
     const jarallaxInit = async () => {
       const jarallaxElems = document.querySelectorAll('.jarallax');
