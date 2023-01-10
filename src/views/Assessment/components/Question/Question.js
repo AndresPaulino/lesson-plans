@@ -23,8 +23,8 @@ const Question = ({ question, onNext }) => {
   };
 
   return (
-    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
-      <Typography variant='h4' gutterBottom>
+    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'} textAlign={'center'}>
+      <Typography variant='h4' gutterBottom display={'flex'}>
         {text}
       </Typography>
       <form onSubmit={handleSubmit}>

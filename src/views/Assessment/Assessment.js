@@ -85,7 +85,14 @@ const Questionnaire = ({ generateLessonPlan }) => {
           <Question question={QUESTIONS[currentQuestion]} onNext={handleNext} />
         </Box>
       ) : (
-        <Box display={'flex'} flexDirection={'column'} alignItems={'center'} maxWidth={1} margin={'0 auto'}>
+        <Box
+          display={'flex'}
+          flexDirection={'column'}
+          alignItems={'center'}
+          maxWidth={1}
+          margin={'0 auto'}
+          textAlign={'center'}
+        >
           <Typography variant='h4' gutterBottom>
             Thank you for completing the assessment!
           </Typography>
@@ -104,7 +111,7 @@ const Questionnaire = ({ generateLessonPlan }) => {
             {loading ? <CircularProgress size={24} color='inherit' /> : 'Generate my leson plan'}
           </Button>
           {loading && (
-            <Typography variant='h6' gutterBottom my={5}>
+            <Typography variant='h6' gutterBottom my={5} textAlign={'center'}>
               Please wait while planifAI generates your lesson plan. This can take up to 30 seconds.
             </Typography>
           )}
