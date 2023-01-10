@@ -48,7 +48,7 @@ const QUESTIONS = [
   },
   {
     text: 'How long do you want your lesson to be?',
-    answers: ['5 minutes', '10 minutes', '15 minutes', '30 minutes', '45 minutes', '1 hour', '1.5 hours', '2 hours'],
+    answers: ['5 minutes', '10 minutes', '15 minutes', '30 minutes', '45 minutes', '1 hour'],
   },
 ];
 
