@@ -47,7 +47,7 @@ const Footer = () => {
         <Typography align={'center'} variant={'caption'} color='text.secondary' component={'p'}>
           This project is open source and can be found on{' '}
           <Link
-            href='
+            href='https://github.com/AndresPaulino/lesson-plans
           '
             target='_blank'
             rel='noopener noreferrer'
