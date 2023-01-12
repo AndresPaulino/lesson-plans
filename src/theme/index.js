@@ -9,7 +9,7 @@ const getTheme = (mode, themeToggler) =>
       palette: mode === 'light' ? light : dark,
       shadows: shadows(mode),
       typography: {
-        fontFamily: '"Inter", sans-serif',
+        fontFamily: '"Kindergarten", cursive',
         button: {
           textTransform: 'none',
           fontWeight: 'medium',
@@ -57,7 +57,7 @@ const getTheme = (mode, themeToggler) =>
         },
       },
       themeToggler,
-    }),
+    })
   );
 
 export default getTheme;
