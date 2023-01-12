@@ -1,5 +1,5 @@
 
-![lessonplan_logo](https://user-images.githubusercontent.com/93609044/211965435-113fd3bc-02e6-4e1d-8d4c-fb8a941a6103.png)
+<img src="https://user-images.githubusercontent.com/93609044/211965435-113fd3bc-02e6-4e1d-8d4c-fb8a941a6103.png" width="250">
 
 
 # PlanifAI
