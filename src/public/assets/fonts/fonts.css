@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Badscript';
+    src: url('./BadScript-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Kindergarten';
+    src: url('./KGMissKindergarten.ttf') format('truetype');
+}

@@ -16,14 +16,11 @@ export default function Document() {
         <meta property='og:url' content='https://planifai.vercel.app/' />
         <meta property='og:site_name' content='planifAI by Andres Paulino' />
         <meta property='og:image' content='public/assets/planifai_logo.png' />
-        <link rel='preload' href='public/fonts/BadScript-Regular.ttf' as='font' type='font/ttf' crossOrigin='' />
-        <link rel='preload' href='public/fonts/KGMissKindergarten.ttf' as='font' type='font/ttf' crossOrigin='' />
       </Head>
       <body
         style={{
           margin: 0,
           padding: 0,
-          fontFamily: '"Badscript", cursive',
         }}
       >
         <Main />

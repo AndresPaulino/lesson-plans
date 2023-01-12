@@ -9,11 +9,14 @@ const getTheme = (mode, themeToggler) =>
       palette: mode === 'light' ? light : dark,
       shadows: shadows(mode),
       typography: {
-        fontFamily: '"Kindergarten", cursive',
+        fontFamily: 'Kindergarten, cursive',
         button: {
           textTransform: 'none',
           fontWeight: 'medium',
         },
+      },
+      h1: {
+        fontFamily: 'Badscript, cursive',
       },
       zIndex: {
         appBar: 1200,

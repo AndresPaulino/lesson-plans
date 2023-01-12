@@ -9,4 +9,10 @@ module.exports = withTM({
     // Will be available on both server and client
   },
   //..other configs
+  rules: [
+    {
+      test: /\.ttf$/,
+      use: ['file-loader'],
+    },
+  ],
 });

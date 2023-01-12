@@ -37,11 +37,22 @@ const Footer = () => {
           &copy; planifAI 2023. All rights reserved
         </Typography>
         <Typography align={'center'} variant={'caption'} color='text.secondary' component={'p'}>
-          planifAI was made with love by Andres Paulino. It is a project using Chat-GPT to help teachers forumluate
+          planifAI was made with &#128154; by Andres Paulino. It is a project using Chat-GPT to help teachers forumluate
           quick and easy lesson plans. If you would like contact me, please do so at paulinoandresmiguel@gmail.com or
-          visit my website at{' '}
+          visit my portfolio at{' '}
           <Link href='https://andrespaulino.com' target='_blank' rel='noopener noreferrer'>
             andrespaulino.com
+          </Link>
+        </Typography>
+        <Typography align={'center'} variant={'caption'} color='text.secondary' component={'p'}>
+          This project is open source and can be found on{' '}
+          <Link
+            href='
+          '
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Github
           </Link>
         </Typography>
       </Grid>

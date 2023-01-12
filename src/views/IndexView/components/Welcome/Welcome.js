@@ -35,7 +35,7 @@ const Welcome = () => {
         }}
       >
         Use the power of AI to quickly generate lesson plans for you and your students.
-        <br /> Choose what grade, subject and topic you want to teach and planifAI will generate a lesson plan for you.
+        <br /> Choose what grade, subject and topic you want to teach and planifAI will generate a lesson plan for you!
       </Typography>
     </Box>
   );
