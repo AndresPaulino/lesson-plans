@@ -1,5 +1,5 @@
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![lessonplan_logo](https://user-images.githubusercontent.com/93609044/211965435-113fd3bc-02e6-4e1d-8d4c-fb8a941a6103.png)
 
 
 # PlanifAI
@@ -9,7 +9,7 @@ A lesson plan generator using OpenAI's Chat-GPT API
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![planifai_screenshot](https://user-images.githubusercontent.com/93609044/211965569-55d15b13-ea38-4fc7-b11f-1a56e0151653.png)
 
 
 ## Run Locally
